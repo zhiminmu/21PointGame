@@ -81,10 +81,29 @@ $(".register").click(function(event) {
 });
 
 $(".login").click(function(){
-	$.post('/path/to/file', {param1: 'value1'}, function(data, textStatus, xhr) {
-		/*optional stuff to do after success */
+	$username = $(".login-model .username").val();
+	$password = $(".login-model .password").val();
+	// $param = JSON.stringify({"loginAction":"loginCheck","username":$username,"password":$password});
+	$.ajax({
+		url: '../Service/User/UserInfoService.php',
+		type: 'POST',
+		dataType: 'json',
+		// data: $param
+		data: {username: $username,password:$password,loginAction:'loginCheck'}
+	})
+	.done(function() {
+		console.log("success");
+	})
+	.fail(function() {
+		console.log("error");
+	})
+	.always(function() {
+		console.log("complete");
 	});
+	
 });
+
+
 
 $(".logon-tab .log").click(function(){
 	$(".register-model").css({

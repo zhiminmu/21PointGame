@@ -1,23 +1,11 @@
 <?php
 namespace Service\User;
 
-// interface UserInfoService
-// {
-// 	public function getName($id);
-// 	public function getRoomNum(%id);
-// }
-/**
-* 
-*/
-class UserInfoService 
-{
-	
-	public function __construct()
-	{
-		echo "string";
+	if (isset($_POST['loginAction'])) {
+		$username = $_POST['username'];
+		$password = $_POST['password'];
+		
+		
 	}
+		
 
-	public function show(){
-		echo "nihao";
-	}
-}
