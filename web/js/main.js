@@ -80,4 +80,30 @@ $(".register").click(function(event) {
 	});
 });
 
+$(".login").click(function(){
+	$.post('/path/to/file', {param1: 'value1'}, function(data, textStatus, xhr) {
+		/*optional stuff to do after success */
+	});
+});
+
+$(".logon-tab .log").click(function(){
+	$(".register-model").css({
+		display: 'none'
+	});
+
+	$(".login-model").css({
+		display: 'block'
+	});
+});
+
+$(".logon-tab .reg").click(function(){
+	$(".login-model").css({
+		display: 'none'
+	});
+	$(".register-model").css({
+		display: 'block'
+	});
+});
+
+
 });

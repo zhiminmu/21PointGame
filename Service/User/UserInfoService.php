@@ -1,8 +1,23 @@
 <?php
 namespace Service\User;
 
-interface UserInfoService
+// interface UserInfoService
+// {
+// 	public function getName($id);
+// 	public function getRoomNum(%id);
+// }
+/**
+* 
+*/
+class UserInfoService 
 {
-	public function getName($id);
-	public function getRoomNum(%id);
+	
+	public function __construct()
+	{
+		echo "string";
+	}
+
+	public function show(){
+		echo "nihao";
+	}
 }

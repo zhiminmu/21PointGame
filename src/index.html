@@ -8,8 +8,14 @@
 	<script type="text/javascript" src="../web/js/register.js"></script>
 </head>
 <body>
-	<div class="register-model">
-		<form>
+	<div class="logon-tab">
+		<ul class="logon">
+			<li class="log"><a href="#" class="active">登录帐号</a></li>
+			<li class="reg"><a href="#">注册帐号</a></li>
+		</ul>
+	</div>
+	<div class="register-model" >
+		<form method="post" action="">
 			<div class="username-group">
 				<input class="username" type="text" placeholder="username"></input>
 				<label style="display: none;">您输入的格式不正确，请重新输入</label>
@@ -24,6 +30,22 @@
 			</div>
 			<div class="register-group">
 				<button class="register" type="submit">注册</button>
+			</div>		
+		</form>
+	</div>
+	<div class="login-model" >
+		<form method="post" action="">
+			<div class="username-group">
+				<input class="username" type="text" placeholder="username"></input>
+				<label style="display: none;">您输入的格式不正确，请重新输入</label>
+			</div>
+			<div class="password-group">
+				<input class="password" type="password" placeholder="password"></input>
+				<label style="display: none;">密码长度介于8-16位之间</label>
+			</div>
+			
+			<div class="login-group">
+				<button class="login" type="submit">登录</button>
 			</div>		
 		</form>
 	</div>
