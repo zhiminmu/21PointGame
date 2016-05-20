@@ -2,6 +2,9 @@ body{
 	padding: 0;
 	margin: 0;
 }
+div ul {
+	display: block;
+}
 h1,h2,h3,h4,h5{
 
 }
@@ -13,3 +16,23 @@ input{
 .focus{
 	background-color: #ff8962;
 }
+
+.logon li{
+	border: 1px solid;
+	list-style: none;
+	text-decoration: none;
+	float: left;
+	margin: 10px;
+	padding: 0,10px,0,10px;
+}
+
+.register-model{
+	display: none;
+	clear: both;
+}
+
+.login-model{
+	display: block;
+	clear: both;
+}
+

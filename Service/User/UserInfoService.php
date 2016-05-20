@@ -1,8 +1,11 @@
 <?php
 namespace Service\User;
 
-interface UserInfoService
-{
-	public function getName($id);
-	public function getRoomNum(%id);
-}
+	if (isset($_POST['loginAction'])) {
+		$username = $_POST['username'];
+		$password = $_POST['password'];
+		
+		
+	}
+		
+

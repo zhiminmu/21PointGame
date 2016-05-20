@@ -80,4 +80,49 @@ $(".register").click(function(event) {
 	});
 });
 
+$(".login").click(function(){
+	$username = $(".login-model .username").val();
+	$password = $(".login-model .password").val();
+	// $param = JSON.stringify({"loginAction":"loginCheck","username":$username,"password":$password});
+	$.ajax({
+		url: '../Service/User/UserInfoService.php',
+		type: 'POST',
+		dataType: 'json',
+		// data: $param
+		data: {username: $username,password:$password,loginAction:'loginCheck'}
+	})
+	.done(function() {
+		console.log("success");
+	})
+	.fail(function() {
+		console.log("error");
+	})
+	.always(function() {
+		console.log("complete");
+	});
+	
+});
+
+
+
+$(".logon-tab .log").click(function(){
+	$(".register-model").css({
+		display: 'none'
+	});
+
+	$(".login-model").css({
+		display: 'block'
+	});
+});
+
+$(".logon-tab .reg").click(function(){
+	$(".login-model").css({
+		display: 'none'
+	});
+	$(".register-model").css({
+		display: 'block'
+	});
+});
+
+
 });
