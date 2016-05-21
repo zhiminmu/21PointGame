@@ -74,10 +74,25 @@ function checkConfpsw(password,confpsw){
 }
 
 $(".register").click(function(event) {
+	$username = $(".register-model .username").val();
+	$password = $(".register-model .password").val();
 
-	$.post('/path/to/file', {param1: 'value1'}, function(data, textStatus, xhr) {
-		
+	$.ajax({
+		url: '../Service/User/UserInfoService.php',
+		type: 'POST',
+		dataType: 'json',
+		data: {username: $username, password: $password, registerAction:'register'},
+	})
+	.done(function(data) {
+		console.log("success:"+data);
+	})
+	.fail(function(data) {
+		console.log("error"+data);
+	})
+	.always(function(data) {
+		console.log("complete"+data);
 	});
+	
 });
 
 $(".login").click(function(){
@@ -91,11 +106,11 @@ $(".login").click(function(){
 		// data: $param
 		data: {username: $username,password:$password,loginAction:'loginCheck'}
 	})
-	.done(function() {
-		console.log("success");
+	.done(function(data) {
+		console.log("success:"+data);
 	})
-	.fail(function() {
-		console.log("error");
+	.fail(function(data) {
+		console.log(data);
 	})
 	.always(function() {
 		console.log("complete");
