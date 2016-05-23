@@ -1,6 +1,7 @@
 body{
 	padding: 0;
 	margin: 0;
+	background-image: url(../imgs/bg.jpg);
 }
 div ul {
 	display: block;
@@ -8,31 +9,113 @@ div ul {
 h1,h2,h3,h4,h5{
 
 }
-input{
+input button{
 	display: inline-block;
 }
 
-
-.focus{
-	background-color: #ff8962;
+a:active, a:hover ,a:focus{
+	/*text-decoration: underline;*/
+	background-color: #1E90FF;
+	/*color: #00EE00;*/
 }
 
+a:visited {
+	background-color: #00FFFF;
+    text-decoration: underline;
+}
+
+.focus{
+	background-color: #EE6363;
+}
+
+.logon {
+	position: relative;
+	left: 450px;
+	top: 200px;
+}
 .logon li{
 	border: 1px solid;
+	background-color: #fff;
 	list-style: none;
-	text-decoration: none;
 	float: left;
 	margin: 10px;
 	padding: 0,10px,0,10px;
+	
 }
 
+a{
+	font-size: large;
+	color: #000;
+	text-decoration: none;
+}
+
+
 .register-model{
+	position: relative;
+	left: 450px;
+	top: 200px;
 	display: none;
 	clear: both;
 }
 
 .login-model{
+	position: relative;
+	left: 450px;
+	top: 200px;
 	display: block;
 	clear: both;
 }
+
+.register-model input{
+	font-size: large;
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+
+.login-model input{
+	font-size: large;
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+
+.register-group .register{
+	font-size: large;
+	position: relative;
+	left: 100px;
+	margin-top: 10px;}
+
+.login-group .login{
+	font-size: large;
+	position: relative;
+	left: 100px;
+	margin-top: 10px;
+}
+
+label{
+	color: #FF0000;
+}
+
+.vs-mode{
+	/*display: none;*/
+
+}
+.vs-mode-label{
+	/*border: 1px solid;*/
+	background: #7B68EE;
+	margin-bottom: 5px;
+	margin-left: 50px;
+	font-size: 1.5em;
+	color: #FF6A6A;
+}
+.vs-mode li{
+	list-style: none;
+	/*border: 1px groove;*/
+	text-decoration: none;
+	margin-top: 10px;
+	width: 100px;
+	padding-left: 20px;
+	background-color: #8470FF;
+	color: #FF00FF;
+}
+
 
