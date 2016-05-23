@@ -85,7 +85,7 @@ $(".login").click(function(){
 	$password = $(".login-model .password").val();
 	// $param = JSON.stringify({"loginAction":"loginCheck","username":$username,"password":$password});
 	$.ajax({
-		url: '../Service/User/UserInfoService.php',
+		url: '/login',
 		type: 'POST',
 		dataType: 'json',
 		// data: $param
@@ -94,8 +94,8 @@ $(".login").click(function(){
 	.done(function() {
 		console.log("success");
 	})
-	.fail(function() {
-		console.log("error");
+	.fail(function(data) {
+		console.log(data);
 	})
 	.always(function() {
 		console.log("complete");

@@ -3,10 +3,11 @@ namespace Service;
 
 class Mysql
 {
-	private static $conn;
+	private static $mysql;
+	private $connected;
 
 	private function __construct()
 	{
-		self::$conn = mysql_connect();
+		$this->connected = mysql_connect();
 	}
 }

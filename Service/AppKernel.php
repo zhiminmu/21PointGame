@@ -1,11 +1,13 @@
 <?php
 namespace Service;
-
+use Service\Db\Mysql;
+use Service\User\UserInfoService;
+require_once __DIR__.'/User/UserInfoService.php';
 class AppKernel
 {
 	private static $kernel;
 
-	private function __construct()
+	public function __construct()
 	{
 
 	}
@@ -19,13 +21,22 @@ class AppKernel
 
 	public function controler($urlpath)
 	{
-		if(strcmp($urlpath,"\/"))
+		if(strcmp($urlpath,"/")==0)
 		{
-			echo file_get_contents("./src/register.html");
+			echo file_get_contents("./src/index.html");
 		}
-		if(strcmp($urlpath,"\/login"))
+		
+		if(strcmp($urlpath,"/login")==0)
 		{
-			echo self::$count;
+			if (isset($_POST['loginAction'])) 
+			{
+				$username = $_POST['username'];
+				$password = $_POST['password'];
+				$userInfo = (new UserInfoService())->getUserInfoByName($username);
+				if(strcmp($password,$userInfo['password'])==0)
+					echo "login sussuce!";		
+			}
 		}
+		
 	}
 }
