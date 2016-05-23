@@ -105,20 +105,23 @@ $(".register").click(function(event) {
 	$password = $(".register-model .password").val();
 
 	$.ajax({
-		url: '../Service/User/UserInfoService.php',
+		url: '/register',
 		type: 'POST',
 		dataType: 'json',
 		data: {username: $username, password: $password, registerAction:'register'},
 	})
 	.done(function(data) {
-		console.log("success:"+data);
+		console.log(data);
+		if(JSON.stringify(data).indexOf("success")<=-1){
+			alert("the username has been used! please select another one.");
+		}
 	})
 	.fail(function(data) {
 		console.log("error"+data);
 	})
-	.always(function(data) {
+	/*.always(function(data) {
 		console.log("complete"+data);
-	});
+	});*/
 	
 });
 

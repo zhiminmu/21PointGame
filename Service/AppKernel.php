@@ -34,7 +34,21 @@ class AppKernel
 				$password = $_POST['password'];
 				$userInfo = (new UserInfoService())->getUserInfoByName($username);
 				if(strcmp($password,$userInfo['password'])==0)
-					echo "login sussuce!";		
+					echo json_encode($userInfo);		
+			}
+		}
+
+		if(strcmp($urlpath,"/register")==0)
+		{
+			if (isset($_POST['registerAction'])) 
+			{
+				$username = $_POST['username'];
+				$password = $_POST['password'];
+				$registerRes = (new UserInfoService())->registerUser($username,$password);
+				if($registerRes==NULL)
+					echo json_encode("success");
+				else
+					echo json_encode($registerRes);	
 			}
 		}
 		

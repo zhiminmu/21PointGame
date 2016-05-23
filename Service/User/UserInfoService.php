@@ -6,8 +6,21 @@ require_once __DIR__.'/../Db/Mysql.php';
 
 class UserInfoService
 {
+	private static $instance;
 	private $conn;
 	private $userInfo=array();
+
+	public function __construct()
+	{
+		
+	}
+
+	/*public static function getInstance()
+	{
+		if(!(self::$instance instanceof self))
+			self::$instance = new self;
+		return self::$instance;
+	}*/
 
 	public function getUserInfoByName($playername)
 	{
@@ -23,6 +36,15 @@ class UserInfoService
 			'jetton' => $resultArr['jetton'],
 			'losenum' => $resultArr['losenum']);
 		return $this->userInfo;
+	}
+
+	public function registerUser($playername,$password)
+	{
+		$mysql = Mysql::getInstance();
+		$conn = $mysql->getConnection();
+		$sql = "insert into player(playername,password) values('".$playername."','".$password."')";
+		mysql_query($sql);
+		return mysql_error();
 	}
 }
 
