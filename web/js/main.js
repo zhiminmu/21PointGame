@@ -53,6 +53,15 @@ function checkUsername(username){
 		$(".username-group label").css({
 			display: 'inline'
 		});
+		$(".register-group .register").attr({
+			disabled: 'true'
+		});
+		$(".login-group .login").attr({
+			disabled: 'true'
+		});
+	}else{
+		$(".register-group .register").removeAttr('disabled');
+		$(".login-group .login").removeAttr('disabled');
 	}
 }
 function checkPassword(password){
@@ -61,6 +70,15 @@ function checkPassword(password){
 		$(".password-group label").css({
 			display: 'inline'
 		});
+		$(".register-group .register").attr({
+			disabled: 'true'
+		});
+		$(".login-group .login").attr({
+			disabled: 'true'
+		});
+	}else{
+		$(".register-group .register").removeAttr('disabled');
+		$(".login-group .login").removeAttr('disabled');
 	}
 }
 
@@ -70,14 +88,38 @@ function checkConfpsw(password,confpsw){
 		$(".confpsw-group label").css({
 			display: 'inline'
 		});
+		$(".register-group .register").attr({
+			disabled: 'true'
+		});
+		$(".login-group .login").attr({
+			disabled: 'true'
+		});
+	}else{
+		$(".register-group .register").removeAttr('disabled');
+		$(".login-group .login").removeAttr('disabled');
 	}
 }
 
 $(".register").click(function(event) {
+	$username = $(".register-model .username").val();
+	$password = $(".register-model .password").val();
 
-	$.post('/path/to/file', {param1: 'value1'}, function(data, textStatus, xhr) {
-		
+	$.ajax({
+		url: '../Service/User/UserInfoService.php',
+		type: 'POST',
+		dataType: 'json',
+		data: {username: $username, password: $password, registerAction:'register'},
+	})
+	.done(function(data) {
+		console.log("success:"+data);
+	})
+	.fail(function(data) {
+		console.log("error"+data);
+	})
+	.always(function(data) {
+		console.log("complete"+data);
 	});
+	
 });
 
 $(".login").click(function(){
@@ -88,18 +130,27 @@ $(".login").click(function(){
 		url: '/login',
 		type: 'POST',
 		dataType: 'json',
-		// data: $param
-		data: {username: $username,password:$password,loginAction:'loginCheck'}
+		data: {username: $username,password:$password,loginAction:'loginCheck'},
+		success: function(data){
+			alert("用户名或密码正确");
+			console.log(data);
+		},
+		error: function(data){
+			alert("用户名或密码不正确请重新输入");
+			console.log(data);
+		}
 	})
-	.done(function() {
-		console.log("success");
-	})
-	.fail(function(data) {
-		console.log(data);
-	})
-	.always(function() {
-		console.log("complete");
-	});
+	// .done(function(response) {
+	// 	alert("success"+response['responseText']);
+		
+	// })
+	// .fail(function(data) {
+	// 	alert("用户名或密码不正确请重新输入");
+	// 	console.log(data);
+	// })
+	// .always(function() {
+	// 	console.log("complete");
+	// });
 	
 });
 

@@ -24,8 +24,5 @@ class UserInfoService
 			'losenum' => $resultArr['losenum']);
 		return $this->userInfo;
 	}
-
-
 }
-		
 
