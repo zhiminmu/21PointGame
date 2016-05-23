@@ -15,14 +15,30 @@ class UserInfoService
 		$conn = $mysql->getConnection();
 		$query = "select * from player where playername='".$playername."'";
 		$result = mysql_query($query);
-		$resultArr = mysql_fetch_array($result,MYSQL_BOTH);
-		$this->userInfo = array('playerid' => $resultArr['playerid'],
-			'playername' => $playername,
-			'password' => $resultArr['password'],
-			'roomid' => $resultArr['roomid'],
-			'jetton' => $resultArr['jetton'],
-			'losenum' => $resultArr['losenum']);
-		return $this->userInfo;
+		return $result;
+		// $resultArr = mysql_fetch_array($result,MYSQL_BOTH);
+		// $this->userInfo = array('playerid' => $resultArr['playerid'],
+		// 	'playername' => $playername,
+		// 	'password' => $resultArr['password'],
+		// 	'roomid' => $resultArr['roomid'],
+		// 	'jetton' => $resultArr['jetton'],
+		// 	'losenum' => $resultArr['losenum']);
+		// return $this->userInfo;
+	}
+
+	public function insertPlayer($username,$password){
+		$mysql = Mysql::getInstance();
+		$conn = $mysql->getConnection();
+		$query = "insert into player(playername,password) values('".$username."','".$password."')";
+		mysql_query($query);
+		$result = mysql_affected_rows();
+		if ($result!=0) {
+			// return $resultArr;
+			return true;
+		}else{
+			return false;
+		}
+		
 	}
 }
 

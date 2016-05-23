@@ -105,7 +105,7 @@ $(".register").click(function(event) {
 	$password = $(".register-model .password").val();
 
 	$.ajax({
-		url: '../Service/User/UserInfoService.php',
+		url: '/register',
 		type: 'POST',
 		dataType: 'json',
 		data: {username: $username, password: $password, registerAction:'register'},
@@ -116,9 +116,9 @@ $(".register").click(function(event) {
 	.fail(function(data) {
 		console.log("error"+data);
 	})
-	.always(function(data) {
-		console.log("complete"+data);
-	});
+	// .always(function(data) {
+	// 	console.log("complete"+data);
+	// });
 	
 });
 
