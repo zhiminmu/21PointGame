@@ -1,7 +1,7 @@
 body{
 	padding: 0;
 	margin: 0;
-	background-image: url(../imgs/bg.jpg);
+	/*background-image: url(../imgs/bg.jpg);*/
 }
 div ul {
 	display: block;
@@ -12,7 +12,9 @@ h1,h2,h3,h4,h5{
 input button{
 	display: inline-block;
 }
-
+a{
+	color: white;
+}
 a:active, a:hover ,a:focus{
 	/*text-decoration: underline;*/
 	background-color: #1E90FF;
@@ -32,6 +34,7 @@ a:visited {
 	position: relative;
 	left: 450px;
 	top: 200px;
+	display: none;
 }
 .logon li{
 	border: 1px solid;
@@ -62,7 +65,8 @@ a{
 	position: relative;
 	left: 450px;
 	top: 200px;
-	display: block;
+	/*display: block;*/
+	display: none;
 	clear: both;
 }
 
@@ -96,7 +100,7 @@ label{
 }
 
 .vs-mode{
-	/*display: none;*/
+	display: none;
 
 }
 .vs-mode-label{
@@ -118,4 +122,161 @@ label{
 	color: #FF00FF;
 }
 
+/*.play li{
+	list-style: none;
+	margin-top: 10px;
+	width: 100px;
+	padding-left: 20px;
+	background-color: #8470FF;
+	/*color: #FF00FF;*/
 
+.play{
+	/*display: none;*/
+}
+
+select option:hover, select option:focus,select option:active{
+	background: #8470FF;
+}
+select{
+	/*Chrome和Firefox里面的边框是不一样的，所以复写了一下*/
+  border: solid 1px #000;
+  background-color: #8470FF;
+  /*很关键：将默认的select选择框样式清除*/
+  appearance:none;
+  -moz-appearance:none;
+  -webkit-appearance:none;
+
+  /*在选择框的最右侧中间显示小箭头图片*/
+  background: url("http://ourjs.github.io/static/2015/arrow.png") no-repeat scroll right center transparent;
+
+  /*为下拉小箭头留出一点位置，避免被文字覆盖*/
+  padding-right: 14px;
+}
+
+.play label, .play select{
+	display: inline-block;
+	position: relative;
+	top: 600px;
+	left: 80%;
+}
+.play label{
+
+}
+
+
+
+.player1{
+	float: left;
+	width: 365px;
+	height: 100%;
+	/*margin-left: 30px;*/
+	margin-top: 100px;
+	/*display: none;*/
+}
+.player1 img{
+	float: left;
+	margin-top: 66px;
+	margin-right: -39px;
+
+}
+.player1 img:first-child{
+	margin-left: 124px;
+	
+}
+
+.player2{
+	width: 260px;
+	height: 330px;
+	float: left;
+	margin-top: 350px;
+	margin-left: 80px;
+
+}
+.player2 img{
+	float: left;
+	margin-left: -39px;
+	margin-top: 73px;
+
+}
+.player2 img:first-child{
+	margin-left: 70px;
+	/*display: none;*/
+}
+	
+.player3{
+	float: right;
+	width: 260px;
+	height: 330px;
+	margin-top: 80px;
+	margin-right: 20px;
+	/*display: none;*/
+
+}
+.player3 img{
+	float: right;
+	margin-right: -39px;
+	margin-top: 73px;
+}
+.player3 img:first-child{
+	margin-right: 70px;
+}
+/*.banker{
+	position:relative;	
+	height: 114px;
+	top:-50px;
+	width: 100%;
+	display: block;
+}
+.banker img{
+	margin-left: -39px;
+}*/
+.banker{
+	width: 260px;
+	height: 330px;
+	float: left;
+	margin-top: -100px;
+	margin-left: -260px;
+}
+.banker img{
+	float: left;
+	margin-left: -39px;
+	margin-top: 73px;
+}
+.banker img:first-child{
+	margin-left: 70px;
+	
+}
+
+.operate button,.operate img{
+	clear: both;
+	/*display: inline;*/
+	/*float: left;*/
+	/*margin-top: -200px;
+	margin-right: 100px;*/
+	/*width: 100px;
+	height: 100px;*/
+	/*margin-left: 100px;*/
+}
+.operate img{
+	/*float: left;*/
+	/*margin-right: 30px;*/
+}
+.operate img:first-child{
+	float: left;
+	margin-left: 430px;
+}
+/*
+#area5{
+	height: 100px;
+	width: 100%;
+	display: none;
+}
+#area5 img{
+	margin-top: 0px;
+	margin-left: 20px;
+}
+#area5 img:first-child{
+	float: left;
+	margin-left: 430px;
+	*/
+}

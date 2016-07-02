@@ -100,10 +100,39 @@ function checkConfpsw(password,confpsw){
 	}
 }
 
-$(".register").click(function(event) {
+$(".register").click(function() {
 	$username = $(".register-model .username").val();
 	$password = $(".register-model .password").val();
+	register($username,$password);
+});
 
+$(".login").click(function(){
+	$username = $(".login-model .username").val();
+	$password = $(".login-model .password").val();	
+	login($username,$password);		
+});
+
+function login($username,$password){
+	$.ajax({
+		url: '/login',
+		type: 'POST',
+		dataType: 'json',
+		data: {username: $username,password:$password,loginAction:'loginCheck'},
+	})
+	.done(function(response) {
+		if (response['playerid']!=null) {
+			$(".userOperation").css({display:'none'});
+			$(".vs-mode").css({display:'block'});
+			storage(response);
+		}
+		
+	})
+	.fail(function(data) {
+		alert("用户名或密码不正确请重新输入");
+	})
+}
+
+function register($username,$password){
 	$.ajax({
 		url: '/register',
 		type: 'POST',
@@ -111,50 +140,28 @@ $(".register").click(function(event) {
 		data: {username: $username, password: $password, registerAction:'register'},
 	})
 	.done(function(data) {
-		console.log("success:"+data);
+		if(JSON.stringify(data).indexOf("success")<=-1){
+			alert("the username has been used! please select another one.");
+		}else{
+			login($username,$password);			
+		}
 	})
 	.fail(function(data) {
 		console.log("error"+data);
 	})
-	// .always(function(data) {
-	// 	console.log("complete"+data);
-	// });
-	
-});
+}
 
-$(".login").click(function(){
-	$username = $(".login-model .username").val();
-	$password = $(".login-model .password").val();
-	// $param = JSON.stringify({"loginAction":"loginCheck","username":$username,"password":$password});
-	$.ajax({
-		url: '/login',
-		type: 'POST',
-		dataType: 'json',
-		data: {username: $username,password:$password,loginAction:'loginCheck'},
-		success: function(data){
-			alert("用户名或密码正确");
-			console.log(data);
-		},
-		error: function(data){
-			alert("用户名或密码不正确请重新输入");
-			console.log(data);
-		}
-	})
-	// .done(function(response) {
-	// 	alert("success"+response['responseText']);
-		
-	// })
-	// .fail(function(data) {
-	// 	alert("用户名或密码不正确请重新输入");
-	// 	console.log(data);
-	// })
-	// .always(function() {
-	// 	console.log("complete");
-	// });
-	
-});
+function storage($player){
+	$playername = $player['playername']; 
+	sessionStorage.setItem("playerName",$playername);
+}
 
-
+// function setCookie(name,value,expire){
+// 	var expireTime = new Date();
+// 	expireTime.setDate(date.getHours()+expire);
+// 	document.cookie = name+"="+escape(value)
+// 	+((expire==null)?"":";expire="expireTime.toGMTString());
+// }
 
 $(".logon-tab .log").click(function(){
 	$(".register-model").css({
@@ -173,6 +180,47 @@ $(".logon-tab .reg").click(function(){
 	$(".register-model").css({
 		display: 'block'
 	});
+});
+
+$(".battle-1").click(function(){
+	$mode = 1;
+	$(".vs-mode").css({
+		display: 'none'
+	});
+	// alert($(".play button").val());
+	$(".play").css({
+		display:'inline-block'
+	})
+	// $bet = 0;
+	// $(".play li").click(function(){
+	// 		$i = $(this).index();
+	// 		switch($i){
+	// 			case 0: $bet = 5; break;
+	// 			case 1: $bet = 10; break;
+	// 			case 2: $bet = 15; break;
+	// 			case 3: $bet = 20; break;
+	// 		}
+	// 	});
+	$(".play button").click(function(){
+		$bet = $(".play option:selected").val();
+		$jetton = sessionStorage.jetton==null?100:sessionStorage.jetton;
+		// alert($jetton);
+		$.getScript("operation.js",function(){
+			operation($mode);
+		});
+	});
+});
+
+$(".battle-2").click(function(){
+
+});
+
+$(".battle-3").click(function(){
+
+});
+
+$(".battle-4").click(function(){
+
 });
 
 

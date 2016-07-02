@@ -6,8 +6,12 @@
 	<link rel="stylesheet" type="text/css" href="../web/css/main.css">
 	<script type="text/javascript" src="../web/js/jquery-2.1.4.js"></script>
 	<script type="text/javascript" src="../web/js/main.js"></script>
+
 </head>
 <body>
+	<div class="userOperation">
+		
+	
 	<div class="logon-tab">
 		<ul class="logon">
 			<li class="log"><a href="#" class="active">登录帐号</a></li>
@@ -49,14 +53,49 @@
 			</div>		
 		<!-- </form> -->
 	</div>
+	</div>
 	<div class="vs-mode">
 		<label class="vs-mode-label">对战模式</label>
 		<ul>
-			<li><a href="#">人机对战</a></li>
-			<li><a href="#">二人对战</a></li>
-			<li><a href="#">三人对战</a></li>
-			<li><a href="#">四人对战</a></li>
+			<li class="battle-1"><a href="#">人机对战</a></li>
+			<li class="battle-2"><a href="#">二人对战</a></li>
+			<li class="battle-3"><a href="#">三人对战</a></li>
+			<li class="battle-4"><a href="#">四人对战</a></li>
 		</ul>
+	</div>
+	<div class="play">
+		<label>请选择本局赌注：</label>
+		<select>
+			<option>$5</option>
+			<option>$10</option>
+			<option>$15</option>
+			<option>$20</option>
+		</select></br>
+		<label>剩余赌注：</label>
+		<button><img src="../web/imgs/start.png"></button>
+	</div>
+
+	<div class="poker">
+		<div class="player1">
+			<img src="#">
+			<img src="../web/imgs/spade_nine.jpg">
+		</div>
+		<div class="player2">
+			<img src="../web/imgs/spade_eight.jpg">
+			<img src="../web/imgs/spade_eight.jpg">
+		</div>
+		<div class="player3">
+			<img src="../web/imgs/spade_seven.jpg">
+			<img src="../web/imgs/spade_seven.jpg">
+		</div>
+		<div class="banker">
+			<img src="../web/imgs/spade_six.jpg">
+			<img src="../web/imgs/spade_six.jpg">
+		</div>
+		<div class="operate">
+			<button class="hit"><img src="../web/imgs/yaopai.png"></button>
+			<button class="stand"><img src="../web/imgs/tingpai.png"></button>
+		</div>
 	</div>
 </body>
 </html>
